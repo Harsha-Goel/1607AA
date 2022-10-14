@@ -1,0 +1,54 @@
+#include<iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int count=0;
+    for(int i=1;i<=n;i++){
+        int a;
+        cin>>a;
+        int b[a];
+        for(int j=0;j<a;j++){
+            cin>>b[j];
+        }
+        map<int ,int>m;
+        for(int s=0;s<a;s++){
+            if(b[s]<0){
+                b[s]=-b[s];
+            }
+            else{
+                continue;
+            }
+   
+        }
+
+        for(int l=0;l<a;l++ ){
+            if(b[l]!=0){
+                m[b[l]]++;
+            }
+            else{
+                m[b[l]]=1;
+                  
+            }
+            
+           
+        }
+        for(int k=0;k<a;k++){
+            if(m[b[k]]>=2){
+                count+=2;
+            }
+            else if(m[b[k]]==1){
+                count+=1;
+            }
+            else{
+                count=count;
+            }
+            m[b[k]]=0;
+        }
+        cout<<count<<endl;
+        count=0;
+
+    }
+}
